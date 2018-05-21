@@ -17,7 +17,6 @@ while (test =! 0) {
     console.log(array);
     mymax(array)
     reverse(array);
-    console.log(array);
   } else if (test === 2) {
     var choice = String(prompt("Rentrez un mot :"));
     reverse(choice);
@@ -35,13 +34,20 @@ function mymax(arr) {
 };
 
 function reverse(som) {
-  arr = som.split('');
-  arr.reverse();
-  return console.log(arr.join(''));
+  if(typeof som === "string" ) {
+    arr = som.split('');
+    arr.reverse();
+    return console.log(arr.join(''));
+  } else if (typeof som === "object" ){
+    return console.log(som.reverse());
+  } else {
+    ;
+  };
+
 };
 
 function vowel(som) {
-  var regex = /[aeiou]/gi;
+  var regex = /[aeiouy]/gi;
   var lettres = som.match(regex);
   return console.log("Il y a " + lettres.length + " voyelles");
 };
